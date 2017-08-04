@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
+    <title>Conversor de Peso</title>
+    <style>
+      body{
+        margin-top:70px;
+        background:#d3d3d3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h1 class="display-4 text-center mb-3">  Conversor de Peso </h1>
+          <form>
+            <div class="form-group ">
+              <input
+                id="input"
+                type="number"
+                class="form-control form-control-lg  "
+                placeholder="Coloque Peso em Kilos...">
+            </div>
+          </form>
+
+          <div id="output">
+            <div class="card mb-2">
+              <div class="card-block">
+                <h4>Gramas:</h4>
+                  <div id="gramsOutput">
+                  </div>
+              </div>
+            </div>
+
+            <div class="card mb-2">
+              <div class="card-block">
+                <h4>Libras:</h4>
+                  <div id="lbsOutput">
+                  </div>
+              </div>
+            </div>
+
+            <div class="card mb-2">
+              <div class="card-block">
+                <h4>Onças:</h4>
+                  <div id="ozOutput">
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('output').style.visibility = 'hidden';
+      document.getElementById('input').addEventListener('input',function(e){
+        document.getElementById('output').style.visibility = 'visible';
+        let kg = e.target.value;
+        if(kg < 0){
+          document.getElementById('gramsOutput').innerHTML = 0.0 + " g";
+          document.getElementById('lbsOutput').innerHTML = 0.0 + " lbs";
+          document.getElementById('ozOutput').innerHTML = 0.0 + " oz";
+        }else{
+          document.getElementById('gramsOutput').innerHTML = kg * 1000 + " g";
+          document.getElementById('lbsOutput').innerHTML = kg * 2.2046 + " lbs";
+          document.getElementById('ozOutput').innerHTML = kg* 35.274 + " oz";
+        }
+      });
+    </script>
+
+  </body>
+</html>
